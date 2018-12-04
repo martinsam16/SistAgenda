@@ -1,11 +1,11 @@
 import conexionD as dao
-import mysql.connector
-class PersonaD():
 
-    def __init__(self):
-        self.__nomper='demo'
-        self.__apeper='demoo'
-        self.__dniper='1234578'
+class PersonaD(object):
+
+    def __init__(self,nom,ape,dni):
+        self.__nomper=nom
+        self.__apeper=ape
+        self.__dniper=dni
         self.__miConexion = dao.conexionD()
     
     def RegPer(self):
@@ -15,7 +15,7 @@ class PersonaD():
                 sql= ("INSERT INTO PERSONA"
                 "(NOMPER, APEPER, DNIPER)"
                 "VALUES (%s, %s,%s)")
-                val=("hola","gg","12345678")
+                val=(self.__nomper,self.__apeper,self.__dniper)
 
                 self.__cursor.execute(sql,val)
                 self.__cnn.commit()
@@ -31,6 +31,3 @@ class PersonaD():
             print (e)
             return False
         
-
-Persona = PersonaD()
-Persona.RegPer()
