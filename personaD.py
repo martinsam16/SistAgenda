@@ -1,6 +1,6 @@
 import conexionD as dao
 
-class PersonaD(object):
+class PersonaD():
 
     def __init__(self,nom,ape,dni):
         self.__nomper=nom

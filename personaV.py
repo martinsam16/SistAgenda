@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import messagebox as popup,Tk, Label,Entry, Button
 import personaD
 
 ventana = Tk()
@@ -20,9 +20,17 @@ lblDniPer = Label(ventana,text='DNI').grid(row=3,column=1)
 inptDniPer= Entry(ventana,textvariable=dni,width=50)
 inptDniPer.grid(row=3,column=2)
 
+#Crear un Controlador para esto xd
 def btnRegPer():
     persona = personaD.PersonaD(inptNomPer.get(), inptApePer.get(), inptDniPer.get())
-    persona.RegPer()
+    if (len(str(inptDniPer.get())) ==8):
+        if (persona.RegPer()):
+            inptNomPer.delete(0, 'end')
+            inptApePer.delete(0, 'end')
+            inptDniPer.delete(0, 'end')
+            popup.showinfo("Info", "Registro Correcto!")
+    else:
+        popup.showerror("Error", "Registo Incorrecto!")
 
 btnRegPer= Button(ventana,text='Registrar',command=btnRegPer,width=20).grid(row=4,column=1)
 
