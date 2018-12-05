@@ -19,6 +19,7 @@ class PersonaD():
 
                 self.__cursor.execute(sql,val)
                 self.__cnn.commit()
+
                 self.__cnn.close()
                 self.__cursor.close()
                 self.__miConexion.desconectar()
@@ -30,4 +31,18 @@ class PersonaD():
         except Exception as e:
             print (e)
             return False
+        
+    def ShowPer(self):
+        try:
+            _,self.__cursor,self.__cnn = self.__miConexion.conectar()
+            if (self.__miConexion.estado()):
+                sql= ("SELECT * FROM PERSONA")
+                self.__cursor.execute(sql)
+                print(self.__cursor.fetchall())
+
+                self.__cnn.close()
+                self.__cursor.close()
+                self.__miConexion.desconectar()
+        except Exception as e:
+            print(e)
         

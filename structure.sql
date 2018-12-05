@@ -13,3 +13,4 @@ insert INTO PERSONA (NOMPER, APEPER, DNIPER)
 		('Martín Alexis','Samán Arata','72720455');
 
 select * from persona;
+
