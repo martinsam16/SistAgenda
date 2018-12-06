@@ -1,12 +1,12 @@
 class PersonaM():
 
     def __init__(self):
-        self.__nomper
-        self.__apeper
-        self.__dniper
+        self.__nomper=""
+        self.__apeper=""
+        self.__dniper=""
 
     def setNomPer(self, nomper):
-        self.__nomper=nomper
+        self.__nomper = nomper
 
     def getNomPer(self):
         return self.__nomper

@@ -1,22 +1,17 @@
 import conexionD as dao
+from personaM import PersonaM
 
-class PersonaD():
-
-    def __init__(self,nom,ape,dni):
-        self.__nomper=nom
-        self.__apeper=ape
-        self.__dniper=dni
-        self.__miConexion = dao.conexionD()
+class PersonaD(PersonaM):        
     
     def RegPer(self):
+        self.__miConexion = dao.conexionD()
         try:
             _,self.__cursor,self.__cnn = self.__miConexion.conectar()
             if (self.__miConexion.estado()):
                 sql= ("INSERT INTO PERSONA"
                 "(NOMPER, APEPER, DNIPER)"
                 "VALUES (%s, %s,%s)")
-                val=(self.__nomper,self.__apeper,self.__dniper)
-
+                val=(PersonaM.getNomPer(self),PersonaM.getApePer(self),PersonaM.getDniPer(self))
                 self.__cursor.execute(sql,val)
                 self.__cnn.commit()
 
@@ -33,6 +28,7 @@ class PersonaD():
             return False
         
     def ShowPer(self):
+        self.__miConexion = dao.conexionD()
         try:
             _,self.__cursor,self.__cnn = self.__miConexion.conectar()
             if (self.__miConexion.estado()):

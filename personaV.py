@@ -1,42 +1,52 @@
-from tkinter import messagebox as popup,Tk, Label,Entry, Button
+from tkinter import messagebox as popup,Tk, Label,Entry, Button, StringVar,\
+    IntVar
 import personaD
+import personaC
+from mock.mock import self
 
-ventana = Tk()
-ventana.title('Persona')
+class personaV():
 
-nombre = "1"
-apellido="2"
-dni="3"
+    def iniciarComponentes(self):
+        ventana = Tk()
+        ventana.title('Persona')
+        ventana.geometry("600x300")
 
-lblNomPer= Label(ventana, text='Nombres').grid(row=1, column=1)
-inptNomPer = Entry(ventana,textvariable=nombre,width=50)
-inptNomPer.grid(row=1, column=2)
-               
-lblApePer= Label(ventana, text='Apellidos').grid(row=2,column=1)
-inptApePer=Entry(ventana,textvariable=apellido,width=50)
-inptApePer.grid(row=2,column=2)
+        nombre = StringVar()
+        apellido = StringVar()
+        dni = IntVar()
 
-lblDniPer = Label(ventana,text='DNI').grid(row=3,column=1)
-inptDniPer= Entry(ventana,textvariable=dni,width=50)
-inptDniPer.grid(row=3,column=2)
+        lblNomPer= Label(ventana, text='Nombres')
+        inptNomPer = Entry(ventana,textvariable=nombre,width=50)
+        inptNomPer.pack()
+                    
+        lblApePer= Label(ventana, text='Apellidos')
+        inptApePer=Entry(ventana,textvariable=apellido,width=50)
+        inptApePer.pack()
 
-#Crear un Controlador para esto xd // Kody Simpson
-def btnRegPer():
-    persona = personaD.PersonaD(inptNomPer.get(), inptApePer.get(), inptDniPer.get())
-    if (len(str(inptDniPer.get())) ==8):
-        if (persona.RegPer()):
-            inptNomPer.delete(0, 'end')
-            inptApePer.delete(0, 'end')
-            inptDniPer.delete(0, 'end')
-            popup.showinfo("Info", "Registro Correcto!")
-        else:
-            popup.showerror("Error", "Registo Incorrecto!")
+        lblDniPer = Label(ventana,text='DNI')
+        inptDniPer= Entry(ventana,textvariable=dni,width=50)
+        inptDniPer.pack()
 
-def btnShowPer():
-    persona = personaD.PersonaD( "", "", "")
-    persona.ShowPer()
+        def btnRegPer():
+            persona = personaC.personaC()
+            persona.variablesM(inptNomPer.get(), inptApePer.get(),inptDniPer.get())
+            if (persona.RegistrarPer()):
+                inptNomPer.delete(0, 'end')
+                inptApePer.delete(0, 'end')
+                inptDniPer.delete(0, 'end')
+                popup.showinfo("Info", "Registro Correcto!")
+            else:
+                popup.showerror("Error!", "Algo salió mal")
 
-btnRegPer= Button(ventana,text='Registrar',command=btnRegPer,width=20).grid(row=4,column=1)
-btnShowPer= Button(ventana,text='Mostrar',command=btnShowPer,width=20).grid(row=4,column=2)
+        def btnShowPer():
+            persona = personaD.PersonaD()
+            persona.ShowPer()
 
-ventana.mainloop()
+        btnRegPer= Button(ventana,text='Registrar',command=btnRegPer).pack()
+        btnShowPer= Button(ventana,text='Mostrar',command=btnShowPer).pack()
+
+        ventana.mainloop()
+
+#gg_Kody Simpson
+
+personaV.iniciarComponentes(self)
