@@ -15,15 +15,15 @@ class personaV():
         apellido = StringVar()
         dni = IntVar()
 
-        lblNomPer= Label(ventana, text='Nombres')
+        lblNomPer= Label(ventana, text='Nombres').pack()
         inptNomPer = Entry(ventana,textvariable=nombre,width=50)
         inptNomPer.pack()
                     
-        lblApePer= Label(ventana, text='Apellidos')
+        lblApePer= Label(ventana, text='Apellidos').pack()
         inptApePer=Entry(ventana,textvariable=apellido,width=50)
         inptApePer.pack()
 
-        lblDniPer = Label(ventana,text='DNI')
+        lblDniPer = Label(ventana,text='DNI').pack()
         inptDniPer= Entry(ventana,textvariable=dni,width=50)
         inptDniPer.pack()
 
