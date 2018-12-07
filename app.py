@@ -10,6 +10,11 @@ def RegPer(nombre, apellido, dni):
     persona.variablesM(nombre, apellido,dni)
     if (persona.RegistrarPer()):
         pass
+    else:
+        eel.AlertaJs("Error RegPer")
+
+
+
 
 @eel.expose
 def ShowPer():
