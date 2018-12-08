@@ -21,11 +21,11 @@ $(function () {
     var d="";
     var cabecera = '<thead>'+
         '<tr>' +
-        '<th>CODPER</th>' +
-        '<th>NOMPER</th>' +
-        '<th>APEPER</th>' +
-        '<th>DNIPER</th>' +
-        '<th>EMAILPER</th>' +
+        '<th>CÓDIGO</th>' +
+        '<th>NOMBRES</th>' +
+        '<th>APELLIDOS</th>' +
+        '<th>DNI</th>' +
+        '<th>E-MAIL</th>' +
         '</tr>'+
         '</thead>';
 
