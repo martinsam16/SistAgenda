@@ -5,11 +5,11 @@ import personaC
 eel.init('web')
 
 @eel.expose
-def RegPer(nombre, apellido, dni):
+def RegPerr(nombre, apellido, dni, email):
     persona = personaC.personaC()
-    persona.variablesM(nombre, apellido,dni)
+    persona.variablesM(nombre, apellido, dni, email)
     if (persona.RegistrarPer()):
-        pass
+        eel.AlertaJs("Registro Exitoso")
     else:
         eel.AlertaJs("Error RegPer")
 
@@ -20,7 +20,5 @@ def RegPer(nombre, apellido, dni):
 def ShowPer():
     persona = personaD.PersonaD()
     persona.ShowPer()
-    
-#eel.say_hello_js('connectedf!')   # Llama funcion js
 
-eel.start('index.htm', size=(800, 800))
+eel.start('index.htm', block=True)

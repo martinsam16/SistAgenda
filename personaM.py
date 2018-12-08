@@ -4,6 +4,7 @@ class PersonaM():
         self.__nomper=""
         self.__apeper=""
         self.__dniper=""
+        self.__emailper=""
 
     def setNomPer(self, nomper):
         self.__nomper = nomper
@@ -22,3 +23,9 @@ class PersonaM():
     
     def getDniPer(self):
         return self.__dniper
+    
+    def setEmailPer(self, email):
+        self.__emailper = email
+    
+    def getEmailPer(self):
+        return self.__emailper

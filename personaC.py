@@ -9,9 +9,10 @@ class personaC(PersonaM):
         else:
             return False
 
-    def variablesM(self,nombre,apellido,dni):
+    def variablesM(self,nombre,apellido,dni,email):
         PersonaM.setNomPer(self, nombre )
         PersonaM.setApePer(self,apellido )
         PersonaM.setDniPer(self,dni )
+        PersonaM.setEmailPer(self,email)
 
     
