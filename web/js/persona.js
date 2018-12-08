@@ -18,7 +18,8 @@ $(function () {
     function AlertaJs(x) {
         alert(x)
     }
-    var d = '<thead>'+
+    var d="";
+    var cabecera = '<thead>'+
         '<tr>' +
         '<th>CODPER</th>' +
         '<th>NOMPER</th>' +
@@ -30,8 +31,7 @@ $(function () {
 
     eel.expose(LlenarTbl);
     function LlenarTbl(cod,nom,ape,dni,corr){
-        $("#tabla").empty();
-        d += '<tr>' +
+         d += '<tr>' +
                     '<td>' + cod + '</td>' +
                     '<td>' + nom + '</td>' +
                     '<td>' + ape + '</td>' +
@@ -39,9 +39,12 @@ $(function () {
                     '<td>' + corr + '</td>' +
              '</tr>';
          $("#tabla").append(d);
+         d="";
     }
     $("#btnshow").click(
         function () {
+            $("#tabla").empty();
+            d+=cabecera;
             eel.ShowPer();
         }
     );
