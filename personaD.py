@@ -47,4 +47,23 @@ class PersonaD(PersonaM):
 
         except Exception as e:
             print(e)
+    
+    def ShowPer1(self, codigo):
+        self.__miConexion = dao.conexionD()
+        try:
+            _, self.__cursor, self.__cnn = self.__miConexion.conectar()
+            if (self.__miConexion.estado()):
+                sql = ("SELECT nomper, apeper, dniper, emailper FROM PERSONA where codper = '"+ str(codigo)+"'")
+                self.__cursor.execute(sql)
+
+                for (nomper, apeper, dniper, emailper) in self.__cursor:
+                    eel.LlenarInpt(nomper,apeper,dniper,emailper)
+                    
+                self.__cnn.close()
+                self.__cursor.close()
+                self.__miConexion.desconectar()
+
+        except Exception as e:
+            print(e)
+
         

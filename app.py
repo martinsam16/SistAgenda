@@ -21,4 +21,10 @@ def ShowPer():
     persona = personaD.PersonaD()
     persona.ShowPer()
 
+@eel.expose
+def llenar(x):
+    persona = personaD.PersonaD()
+    persona.ShowPer1(x)
+
+
 eel.start('index.htm', block=True)

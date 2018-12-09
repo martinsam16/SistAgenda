@@ -18,35 +18,57 @@ $(function () {
     function AlertaJs(x) {
         alert(x)
     }
-    var d="";
-    var cabecera = '<thead>'+
+    var d = "";
+    var cabecera = '<thead>' +
         '<tr>' +
         '<th>CÓDIGO</th>' +
         '<th>NOMBRES</th>' +
         '<th>APELLIDOS</th>' +
         '<th>DNI</th>' +
         '<th>E-MAIL</th>' +
-        '</tr>'+
+        '</tr>' +
         '</thead>';
 
     eel.expose(LlenarTbl);
-    function LlenarTbl(cod,nom,ape,dni,corr){
-         d += '<tr>' +
-                    '<td>' + cod + '</td>' +
-                    '<td>' + nom + '</td>' +
-                    '<td>' + ape + '</td>' +
-                    '<td>' + dni + '</td>' +
-                    '<td>' + corr + '</td>' +
-             '</tr>';
-         $("#tabla").append(d);
-         d="";
+    function LlenarTbl(cod, nom, ape, dni, corr) {
+        d += '<tbody>' +
+            '<tr id="' + cod + '" onclick="rellenar(' + cod + ')">' +
+            '<td>' + cod + '</td>' +
+            '<td>' + nom + '</td>' +
+            '<td>' + ape + '</td>' +
+            '<td>' + dni + '</td>' +
+            '<td>' + corr + '</td>' +
+            '</tr>' +
+            '</tbody>';
+        $("#tabla").append(d);
+        d = "";
     }
+
     $("#btnshow").click(
         function () {
             $("#tabla").empty();
-            d+=cabecera;
+            d += cabecera;
             eel.ShowPer();
         }
     );
+    /*
+        document.querySelector("table").addEventListener("click", function (event) {
+            console.log(event.target.innerText);
+        }, false);
+    */
+    eel.expose(LlenarInpt)
+    function LlenarInpt(nom, ape, dni, corr) {
+        $('#NOMPER').val(nom);
+        $('#APEPER').val(ape);
+        $('#DNIPER').val(dni);
+        var separado = corr.split("@");
+        $('#USRPER').val(separado[0]);
+        $('#DOMPER').val(separado[1]);
 
-}); 
+    }
+
+});
+function rellenar(x) {
+    eel.llenar(x)
+
+}
