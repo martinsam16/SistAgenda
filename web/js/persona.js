@@ -1,14 +1,21 @@
 $(function () {
 
-    $("#btnreg").click(function () {
-        eel.RegPerr($("#NOMPER").val(), $("#APEPER").val(), $("#DNIPER").val(), $("#USRPER").val() + "@" + $("#DOMPER").val());
+    eel.expose(Limpiar)
+    function Limpiar(){
         $('#NOMPER').val('');
         $('#APEPER').val('');
         $('#DNIPER').val('');
         $('#USRPER').val('');
         $('#DOMPER').val('');
-    });
+    }
 
+    $("#btnreg").click(
+        function () {
+        eel.RegPerr($("#NOMPER").val(), $("#APEPER").val(), $("#DNIPER").val(), $("#USRPER").val() + "@" + $("#DOMPER").val());
+        Limpiar;
+        }
+    );
+    
     eel.expose(consoleJs);
     function consoleJs(x) {
         console.log(x);
@@ -44,13 +51,29 @@ $(function () {
         d = "";
     }
 
+    $("#btnclear").click(
+        function(){
+            console.log("aaaa");
+            Limpiar;
+            
+        }            
+    );
+
+    $("#btnedit").click(
+        function(){
+            console.log("ahah");
+        }
+        
+    );
+
     $("#btnshow").click(
         function () {
             $("#tabla").empty();
             d += cabecera;
             eel.ShowPer();
+            console.log("Show");
         }
-    );
+    )
     /*
         document.querySelector("table").addEventListener("click", function (event) {
             console.log(event.target.innerText);
@@ -66,6 +89,8 @@ $(function () {
         $('#DOMPER').val(separado[1]);
 
     }
+
+    
 
 });
 function rellenar(x) {
