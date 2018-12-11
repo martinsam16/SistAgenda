@@ -1,6 +1,6 @@
 $(function () {
 
-    eel.expose(Limpiar)
+    eel.expose(Limpiar);
     function Limpiar(){
         $('#NOMPER').val('');
         $('#APEPER').val('');
@@ -51,17 +51,10 @@ $(function () {
         d = "";
     }
 
+    
     $("#btnclear").click(
         function(){
-            console.log("aaaa");
-            Limpiar;
-            
-        }            
-    );
-
-    $("#btnedit").click(
-        function(){
-            console.log("ahah");
+            Limpiar();
         }
         
     );
@@ -71,9 +64,9 @@ $(function () {
             $("#tabla").empty();
             d += cabecera;
             eel.ShowPer();
-            console.log("Show");
         }
     )
+
     /*
         document.querySelector("table").addEventListener("click", function (event) {
             console.log(event.target.innerText);
@@ -94,6 +87,5 @@ $(function () {
 
 });
 function rellenar(x) {
-    eel.llenar(x)
-
+    eel.llenar(x);
 }
