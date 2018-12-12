@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PersonaV</title>
     <link rel="shortcut icon" href="img/ico/profile.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="js/persona.js"></script>
 </head>
@@ -44,12 +46,12 @@
                 </div>
 
                 <div>
-                    <div class="col input-group">
-                        <button class="btn btn-outline-primary" type="button" id="btnreg">Registrar</button>
-                        <button class="btn btn-outline-secondary" type="button" id="btnshow">Listar</button>
-                        <button class="btn btn-outline-secondary" type="button" id="btnedit">Editar</button>
-                        <button class="btn btn-outline-secondary" type="button" id="btnelim">Eliminar</button>
-                        <button class="btn btn-outline-secondary" type="button" id="btnclear">Limpiar</button>
+                    <div class="col btn-group">
+                        <button class="btn btn-primary" type="button" id="btnreg" data-toggle="tooltip" data-placement="top" title="Registrar persona">Registrar</button>
+                        <button class="btn btn-info" type="button" id="btnshow" data-toggle="tooltip" data-placement="bottom" title="Mostrar registros">Listar</button>
+                        <button class="btn btn-warning" type="button" id="btnedit" data-toggle="tooltip" data-placement="top" title="Editar registro">Editar</button>
+                        <button class="btn btn-danger" type="button" id="btnelim" data-toggle="tooltip" data-placement="bottom" title="Eliminar registro">Eliminar</button>
+                        <button class="btn btn-light" type="button" id="btnclear" data-toggle="tooltip" data-placement="top" title="Limpiar los campos de arriba">Limpiar</button>
                     </div>
 
                 </div>

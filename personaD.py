@@ -79,7 +79,7 @@ class PersonaD(PersonaM):
                 self.__cnn.close()
                 self.__cursor.close()
                 self.__miConexion.desconectar()
-                print("Eliminacion exitosa")
+                eel.AlertaJs("Eliminacion exitosa")
                 return True
             else:
                 print("No pudiste con ella..")

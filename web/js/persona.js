@@ -54,6 +54,7 @@ $(function () {
     $("#btnclear").click(
         function(){
             Limpiar();
+            codper = "";
         }
         
     );
@@ -91,7 +92,10 @@ $(function () {
 
     }
 
-});
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        });
+     });
 function rellenar(x) {
     eel.llenar(x);
 }
