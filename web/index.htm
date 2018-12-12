@@ -8,9 +8,9 @@
     <title>PersonaV</title>
     <link rel="shortcut icon" href="img/ico/profile.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="js/persona.js"></script>
 </head>
@@ -19,10 +19,10 @@
 
     <body>
 
+        <div class="col mb-3"></div>
+
         <form class="form sticky-top bg-white">
             <div class="container">
-                
-            
             <div>
                 <div class="col input-group">
                     <span class="input-group-text">DNI</span>
@@ -30,14 +30,14 @@
                 </div>
 
                 <div>
-                    <div class="col input-group">
+                    <div class="col input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Nombres y Apellidoss</span>
+                            <span class="input-group-text">Nombres y Apellidoss</span>
                         </div>
                         <input type="text" class="form-control" id="NOMPER">
                         <input type="text" class="form-control" id="APEPER">
                     </div>
-                    <div class="col input-group">
+                    <div class="col input-group mb-3 input-group-lg">
                         <span class="input-group-text" id="">Correo</span>
                         <input type="text" class="form-control" id="USRPER" placeholder="username">
                         <span class="input-group-text" id="basic-addon1">@</span>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div>
-                    <div class="col btn-group">
+                    <div class="col btn-group mb-3">
                         <button class="btn btn-primary" type="button" id="btnreg" data-toggle="tooltip" data-placement="top" title="Registrar persona">Registrar</button>
                         <button class="btn btn-info" type="button" id="btnshow" data-toggle="tooltip" data-placement="bottom" title="Mostrar registros">Listar</button>
                         <button class="btn btn-warning" type="button" id="btnedit" data-toggle="tooltip" data-placement="top" title="Editar registro">Editar</button>
@@ -59,9 +59,12 @@
             </div>
         </div>
         </form>
+
+        <div class="table-responsive">
             <table class="table table-hover table-bordered" id="tabla">
                 
             </table>
+        </div>
        
     </body>
 
