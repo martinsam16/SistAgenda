@@ -4,6 +4,7 @@ import personaC
 
 eel.init('web')
 
+
 @eel.expose
 def RegPerr(nombre, apellido, dni, email):
     persona = personaC.personaC()
@@ -14,17 +15,22 @@ def RegPerr(nombre, apellido, dni, email):
         eel.AlertaJs("Error RegPer")
 
 
-
-
 @eel.expose
 def ShowPer():
     persona = personaD.PersonaD()
     persona.ShowPer()
 
+
 @eel.expose
 def llenar(x):
     persona = personaD.PersonaD()
     persona.ShowPer1(x)
+
+@eel.expose
+def ElimPer(codigo):
+    persona = personaD.PersonaD()
+    if (persona.ElimPer(codigo)):
+        pass
 
 
 eel.start('index.htm', block=True)

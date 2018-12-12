@@ -1,5 +1,5 @@
 $(function () {
-
+    var codper;
     eel.expose(Limpiar);
     function Limpiar(){
         $('#NOMPER').val('');
@@ -9,13 +9,6 @@ $(function () {
         $('#DOMPER').val('');
     }
 
-    $("#btnreg").click(
-        function () {
-        eel.RegPerr($("#NOMPER").val(), $("#APEPER").val(), $("#DNIPER").val(), $("#USRPER").val() + "@" + $("#DOMPER").val());
-        Limpiar;
-        }
-    );
-    
     eel.expose(consoleJs);
     function consoleJs(x) {
         console.log(x);
@@ -51,7 +44,13 @@ $(function () {
         d = "";
     }
 
-    
+    $("#btnreg").click(
+        function () {
+        eel.RegPerr($("#NOMPER").val(), $("#APEPER").val(), $("#DNIPER").val(), $("#USRPER").val() + "@" + $("#DOMPER").val());
+        Limpiar();
+        }
+    );
+
     $("#btnclear").click(
         function(){
             Limpiar();
@@ -67,13 +66,22 @@ $(function () {
         }
     )
 
+    $("#btnelim").click(
+        function(){
+            eel.ElimPer(codper);
+            codper = "";
+            Limpiar();
+        }
+    );
+
     /*
         document.querySelector("table").addEventListener("click", function (event) {
             console.log(event.target.innerText);
         }, false);
     */
     eel.expose(LlenarInpt)
-    function LlenarInpt(nom, ape, dni, corr) {
+    function LlenarInpt(cod, nom, ape, dni, corr) {
+        codper=cod;
         $('#NOMPER').val(nom);
         $('#APEPER').val(ape);
         $('#DNIPER').val(dni);
@@ -82,8 +90,6 @@ $(function () {
         $('#DOMPER').val(separado[1]);
 
     }
-
-    
 
 });
 function rellenar(x) {
