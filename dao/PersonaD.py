@@ -1,5 +1,5 @@
 from dao import Conexion as dao
-import modelo.PersonaM as persona
+from modelo import PersonaM as persona
 import eel
 
 
@@ -17,8 +17,8 @@ class PersonaD(persona.PersonaM):
                 sql = ("INSERT INTO PERSONA"
                        "(NOMPER, APEPER, DNIPER, EMAILPER)"
                        "VALUES (%s, %s , %s , %s)")
-                val = (persona.PersonaM.PersonaM.getNomPer(self), persona.PersonaM.PersonaM.getApePer(self), persona.PersonaM.PersonaM.getDniPer(self),
-                       persona.PersonaM.PersonaM.getEmailPer(self))
+                val = (persona.PersonaM.getNomPer(self), persona.PersonaM.getApePer(self), persona.PersonaM.getDniPer(self),
+                       persona.PersonaM.getEmailPer(self))
                 self.__cursor.execute(sql, val)
                 self.__cnn.commit()
 
@@ -34,8 +34,9 @@ class PersonaD(persona.PersonaM):
             print("ErrorRegPErpersonaD",str(e))
             return False
 
-    def ShowPer(self):
+    def showPer(self):
         try:
+            self.__miConexion = dao.ConexionD()
             _, self.__cursor, self.__cnn = self.__miConexion.conectar()
             if self.__miConexion.estado():
                 sql = ("SELECT codper, nomper, apeper, dniper, emailper FROM PERSONA")
@@ -53,6 +54,7 @@ class PersonaD(persona.PersonaM):
 
     def ShowPer1(self, codigo):
         try:
+            self.__miConexion = dao.ConexionD()
             _, self.__cursor, self.__cnn = self.__miConexion.conectar()
             if (self.__miConexion.estado()):
                 sql = ("SELECT codper, nomper, apeper, dniper, emailper FROM PERSONA where codper = '" + str(

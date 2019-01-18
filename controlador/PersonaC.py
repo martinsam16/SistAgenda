@@ -5,7 +5,7 @@ from dao import PersonaD as dao
 class personaC(persona.PersonaM):
 
     def RegistrarPer(self):
-        if (dao.PersonaD.RegPer(self)):
+        if dao.PersonaD.RegPer(self):
             return True
         else:
             return False
@@ -15,3 +15,9 @@ class personaC(persona.PersonaM):
         persona.PersonaM.setApePer(self, apellido)
         persona.PersonaM.setDniPer(self, dni)
         persona.PersonaM.setEmailPer(self, email)
+
+    def listarPersonas(self):
+        dao.PersonaD.showPer(self)
+
+    def listarPersonasPorCod(self,codigo):
+        dao.PersonaD.ShowPer1(self,codigo)

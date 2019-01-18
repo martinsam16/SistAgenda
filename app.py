@@ -1,6 +1,5 @@
 import eel
 
-import dao.PersonaD
 import controlador.PersonaC as personaC
 
 eel.init('web')
@@ -17,14 +16,14 @@ def RegPerr(nombre, apellido, dni, email):
 
 @eel.expose
 def ShowPer():
-    persona = dao.PersonaD.PersonaD()
-    persona.ShowPer()
+    persona = personaC.personaC()
+    persona.listarPersonas()
 
 
 @eel.expose
 def llenar(x):
-    persona = dao.PersonaD.PersonaD
-    persona.ShowPer1(x)
+    persona = personaC.personaC()
+    persona.listarPersonasPorCod(x)
 
 @eel.expose
 def ElimPer(codigo):
