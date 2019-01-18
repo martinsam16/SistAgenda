@@ -27,9 +27,8 @@ def llenar(x):
 
 @eel.expose
 def ElimPer(codigo):
-    persona = dao.PersonaD.PersonaD
-    if (persona.ElimPer(codigo)):
-        pass
+    persona = personaC.personaC()
+    persona.eliminarPersona(codigo)
 
 
 eel.start('index.html', block=True)

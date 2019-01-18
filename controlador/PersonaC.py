@@ -10,6 +10,10 @@ class personaC(persona.PersonaM):
         else:
             return False
 
+    def eliminarPersona(self, id):
+        dao.PersonaD.ElimPer(self, id)
+        print("Eliminacion Exitosa")
+
     def variablesM(self, nombre, apellido, dni, email):
         persona.PersonaM.setNomPer(self, nombre)
         persona.PersonaM.setApePer(self, apellido)

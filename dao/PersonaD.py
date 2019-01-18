@@ -73,6 +73,7 @@ class PersonaD(persona.PersonaM):
 
     def ElimPer(self, codigo):
         try:
+            self.__miConexion = dao.ConexionD()
             _, self.__cursor, self.__cnn = self.__miConexion.conectar()
             if (self.__miConexion.estado()):
                 sql = ("delete from PERSONA where codper = " + str(codigo))
