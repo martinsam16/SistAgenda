@@ -1,6 +1,7 @@
 import eel
-import personaD
-import personaC
+
+import dao.PersonaD
+import controlador.PersonaC as personaC
 
 eel.init('web')
 
@@ -9,28 +10,27 @@ eel.init('web')
 def RegPerr(nombre, apellido, dni, email):
     persona = personaC.personaC()
     persona.variablesM(nombre, apellido, dni, email)
-    if (persona.RegistrarPer()):
+    if persona.RegistrarPer():
         eel.AlertaJs("Registro Exitoso")
     else:
         eel.AlertaJs("Error RegPer")
 
-
 @eel.expose
 def ShowPer():
-    persona = personaD.PersonaD()
+    persona = dao.PersonaD.PersonaD()
     persona.ShowPer()
 
 
 @eel.expose
 def llenar(x):
-    persona = personaD.PersonaD()
+    persona = dao.PersonaD.PersonaD
     persona.ShowPer1(x)
 
 @eel.expose
 def ElimPer(codigo):
-    persona = personaD.PersonaD()
+    persona = dao.PersonaD.PersonaD
     if (persona.ElimPer(codigo)):
         pass
 
 
-eel.start('index.htm', block=True)
+eel.start('index.html', block=True)
